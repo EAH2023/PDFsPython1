@@ -1,0 +1,98 @@
+import cv2
+import pytesseract
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+import json
+
+# Paso 1: Leer y mostrar la imagen
+def load_and_display_image(image_path):
+    image = cv2.imread(image_path)
+    cv2.imshow("Document", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    return image
+
+# Paso 2: Reconocer texto con Tesseract OCR
+def extract_text_with_coordinates(image):
+    custom_config = r'--oem 3 --psm 6'
+    data = pytesseract.image_to_data(image, config=custom_config, output_type=pytesseract.Output.DICT)
+    extracted_data = []
+    for i in range(len(data['text'])):
+        if data['text'][i].strip():
+            extracted_data.append({
+                'text': data['text'][i],
+                'left': data['left'][i],
+                'top': data['top'][i],
+                'width': data['width'][i],
+                'height': data['height'][i]
+            })
+    return extracted_data
+
+# Paso 3: Seleccionar campos de interés
+def select_fields(data):
+    print("Seleccione los campos interesantes del documento:")
+    selected_fields = {}
+    for item in data:
+        print(f"Campo detectado: {item['text']}, Coordenadas: ({item['left']}, {item['top']})")
+        user_input = input(f"¿Desea seleccionar este campo (s/n)? ")
+        if user_input.lower() == 's':
+            selected_fields[item['text']] = (item['left'], item['top'], item['width'], item['height'])
+    return selected_fields
+
+# Paso 4: Crear un modelo basado en campos seleccionados
+def train_model_on_fields(fields, document_images):
+    X = []  # Características (coordenadas normalizadas)
+    y = []  # Etiquetas (nombre del campo)
+
+    for image_path, field_data in document_images.items():
+        image = cv2.imread(image_path)
+        text_data = extract_text_with_coordinates(image)
+        for field_name, coords in field_data.items():
+            for item in text_data:
+                if (item['left'], item['top'], item['width'], item['height']) == coords:
+                    X.append([item['left'], item['top'], item['width'], item['height']])
+                    y.append(field_name)
+
+    model = RandomForestClassifier()
+    model.fit(X, y)
+    return model
+
+# Paso 5: Reconocer campos en nuevos documentos
+def recognize_fields_in_new_document(model, image_path):
+    image = cv2.imread(image_path)
+    text_data = extract_text_with_coordinates(image)
+    recognized_data = {}
+
+    for item in text_data:
+        prediction = model.predict([[item['left'], item['top'], item['width'], item['height']]])
+        recognized_data[prediction[0]] = item['text']
+
+    return recognized_data
+
+# Paso 6: Guardar datos en Excel
+def save_to_excel(data_list, output_file):
+    df = pd.DataFrame(data_list)
+    df.to_excel(output_file, index=False, engine='openpyxl')
+
+# Ejemplo de uso
+def main():
+    document_images = {
+        'doc1.png': {"Fecha": (100, 50, 60, 20), "Importe": (300, 100, 80, 20)},
+        'doc2.png': {"Fecha": (110, 55, 60, 20), "Importe": (310, 105, 80, 20)},
+        'doc3.png': {"Fecha": (120, 60, 60, 20), "Importe": (320, 110, 80, 20)}
+    }
+
+    # Entrenamos el modelo
+    model = train_model_on_fields({}, document_images)
+
+    # Reconocer campos en un nuevo documento
+    new_document = 'new_doc.png'
+    recognized_fields = recognize_fields_in_new_document(model, new_document)
+    print("Campos reconocidos:", recognized_fields)
+
+    # Guardar en Excel
+    save_to_excel([recognized_fields], 'output.xlsx')
+
+if __name__ == "__main__":
+    main()
