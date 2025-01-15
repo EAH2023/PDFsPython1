@@ -1,0 +1,14 @@
+Resumen de los signos principales
+# Encabezados
+## Nivel 2
+### Nivel 3
+-, *, + Listas no ordenadas
+1., 2. Listas ordenadas
+** Negrita
+* Cursiva
+[]() Enlaces
+![]() Imágenes
+` Código en línea y final
+``` Inicio y final bloque de bloque de codigo
+> Citas
+--- Separadores
