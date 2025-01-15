@@ -1,0 +1,12 @@
+# Paquetes principales para la funcionalidad del proyecto
+fitz==0.0.1.dev2         # Interfaz para trabajar con archivos PDF basada en PyMuPDF
+openpyxl==3.1.5          # Manipulación de archivos Excel (formatos .xlsx y .xlsm)
+pandas==2.2.3            # Procesamiento y análisis de datos estructurados
+
+# Herramientas para manejar y procesar PDFs
+pdfminer==20191125       # Extraer texto y metadatos de archivos PDF
+pdfplumber==0.11.5       # Amplía pdfminer para extraer tablas, imágenes y texto
+
+# Paquetes adicionales
+PyPDF2==3.0.1            # Manipulación de PDFs, como división y fusión
+scikit_learn==1.6.1      # Algoritmos y herramientas para machine learning
