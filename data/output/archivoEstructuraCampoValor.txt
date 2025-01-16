@@ -1,0 +1,144 @@
+Bloque extraído: 
+Fecha
+26-06-23
+
+Bloque extraído: 
+Oficina
+6001
+
+Bloque extraído: 
+Adeudo por transferencia
+Ordenante
+ENRIQUE ARIAS HEREDIA
+
+Bloque extraído:
+Observaciones
+PAGO RECIBOS DE 557,47 + 292 +  66,51
+
+Bloque extraído: 
+Por cuenta de
+
+Bloque extraído: 
+Fecha emisión
+26-06-23
+
+Bloque extraído: 
+Moneda
+EUR
+
+Bloque extraído: 
+Número de transferencia
+26062023018807800001
+
+Bloque extraído: 
+Beneficiario
+SOMAE Comunidad de Propietarios
+
+Bloque extraído: 
+Banco beneficiario
+BANCO DE SABADELL  S.A.
+CCC: 0081-0469-44-0001544058
+
+Bloque extraído: 
+Referencia para el beneficiario
+
+Bloque extraído: 
+Importe
+915,98
+
+Bloque extraído: 
+El  presente  documento  acredita  que  Bankinter  ha  recibido  la  orden
+de transferencia indicada.
+
+Bloque extraído: 
+Adeudamos en su cuenta el apunte que se detalla.
+CCC
+
+Bloque extraído: 
+Sucursal DC Nº Cuenta
+01005****4
+78
+6001
+
+Bloque extraído: 
+Entidad
+0128
+
+Bloque extraído: 
+Nº IBAN
+ES52012860017801005****4
+
+Bloque extraído: 
+BIC
+BKBKESMM
+
+Bloque extraído: 
+Para cualquier información, llámenos a Banca Telefónica, 91 657 88 00
+F00703  R. M. MADRID, T.1.857, F220, H.9.643, N.I.F., A-28-157360
+WEB               00000000  00  00000000000
+
+Bloques extraídos: ['Fecha\n26-06-23', 'Oficina\n6001', 'Adeudo por transferencia\nOrdenante\nENRIQUE ARIAS HEREDIA', 'Observaciones\nPAGO RECIBOS DE 557,47 + 292 +  66,51', 'Por cuenta de', 'Fecha emisión\n26-06-23', 'Moneda\nEUR', 'Número de transferencia\n26062023018807800001', 'Beneficiario\nSOMAE Comunidad de Propietarios', 'Banco beneficiario\nBANCO DE SABADELL  S.A.\nCCC: 0081-0469-44-0001544058', 'Referencia para el beneficiario', 'Importe\n915,98', 'El  presente  documento  acredita  que  Bankinter  ha  recibido  la  orden\nde transferencia indicada.', 'Adeudamos en su cuenta el apunte que se detalla.\nCCC', 'Sucursal DC Nº Cuenta\n01005****4\n78\n6001', 'Entidad\n0128', 'Nº IBAN\nES52012860017801005****4', 'BIC\nBKBKESMM', 'Para cualquier información, llámenos a Banca Telefónica, 91 657 88 00\nF00703  R. M. MADRID, T.1.857, F220, H.9.643, N.I.F., A-28-157360\nWEB               00000000  00  00000000000']
+
+Campo: Fecha
+26-06-23, Valor: Oficina
+6001
+Campo: Adeudo por transferencia
+Ordenante
+ENRIQUE ARIAS HEREDIA, Valor: Observaciones
+PAGO RECIBOS DE 557,47 + 292 +  66,51
+Campo: Por cuenta de, Valor: Fecha emisión
+26-06-23
+Campo: Moneda
+EUR, Valor: Número de transferencia
+26062023018807800001
+Campo: Beneficiario
+SOMAE Comunidad de Propietarios, Valor: Banco beneficiario
+BANCO DE SABADELL  S.A.
+CCC: 0081-0469-44-0001544058
+Campo: Referencia para el beneficiario, Valor: Importe
+915,98
+Campo: El  presente  documento  acredita  que  Bankinter  ha  recibido  la  orden
+de transferencia indicada., Valor: Adeudamos en su cuenta el apunte que se detalla.
+CCC
+Campo: Sucursal DC Nº Cuenta
+01005****4
+78
+6001, Valor: Entidad
+0128
+Campo: Nº IBAN
+ES52012860017801005****4, Valor: BIC
+BKBKESMM
+
+
+
+Datos estructurados:
+
+Fecha
+26-06-23: Oficina
+6001
+Adeudo por transferencia
+Ordenante
+ENRIQUE ARIAS HEREDIA: Observaciones
+PAGO RECIBOS DE 557,47 + 292 +  66,51
+Por cuenta de: Fecha emisión
+26-06-23
+Moneda
+EUR: Número de transferencia
+26062023018807800001
+Beneficiario
+SOMAE Comunidad de Propietarios: Banco beneficiario
+BANCO DE SABADELL  S.A.
+CCC: 0081-0469-44-0001544058
+Referencia para el beneficiario: Importe
+915,98
+El  presente  documento  acredita  que  Bankinter  ha  recibido  la  orden
+de transferencia indicada.: Adeudamos en su cuenta el apunte que se detalla.
+CCC
+Sucursal DC Nº Cuenta
+01005****4
+78
+6001: Entidad
+0128
+Nº IBAN
+ES52012860017801005****4: BIC
+BKBKESMM
