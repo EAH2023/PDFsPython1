@@ -1,3 +1,11 @@
+"""
+Este código carga datos de un archivo CSV, 
+convierte el CONCEPTO en características numéricas, 
+entrena un modelo Naive Bayes multinomial para 
+clasificar CATEGORIAS y permite hacer predicciones 
+sobre nuevos CONCEPTOs para predecir a que CATEGORIA pertenece.
+Parte de un ejemplo de fichero de prueba .csv de apuntes bancarios
+"""
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
@@ -37,6 +45,6 @@ def predecir_categoria(concepto):
     return encoder.inverse_transform([categoria_codificada])[0]
 
 # Ejemplo de uso
-nuevo_concepto = "ABONO REMESA: 202407020003493"
+nuevo_concepto = "RECIB /NATURGY"
 categoria = predecir_categoria(nuevo_concepto)
 print(f"El concepto '{nuevo_concepto}' pertenece a la categoría: {categoria}")

@@ -2,19 +2,21 @@ from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTTextBox
 
 # Ruta del archivo PDF
-pdf_path = "archivo2.pdf"  # Cambia esto por la ruta de tu archivo PDF
+pdf_path = "archivo.pdf"  # Cambia esto por la ruta de tu archivo PDF
 
-# Función para extraer bloques de texto con PDFMiner
-def extraer_bloques_pdfminer(pdf_path):
-    print("Extrayendo bloques de texto del PDF...")
-    bloques = []
-    for page_layout in extract_pages(pdf_path):
+# Función para extraer bloques de texto con PDFMiner por página
+def extraer_bloques_pdfminer_por_pagina(pdf_path):
+    print("Extrayendo bloques de texto del PDF página por página...")
+    paginas = []
+    for page_number, page_layout in enumerate(extract_pages(pdf_path)):
+        bloques = []
         for element in page_layout:
             if isinstance(element, LTTextBox):
                 bloques.extend(element.get_text().strip().split("\n"))
-    print("Bloques extraídos:")
-    print(bloques)  # Depuración: Ver todos los bloques extraídos
-    return bloques
+        print(f"Bloques extraídos de la página {page_number + 1}:")
+        print(bloques)  # Depuración: Ver bloques de la página actual
+        paginas.append(bloques)
+    return paginas
 
 # Función para estructurar "campo: valor" con validación mejorada
 def estructurar_campos_mejorado(lineas):
@@ -45,11 +47,14 @@ def estructurar_campos_mejorado(lineas):
     print(campos_valores)  # Depuración: Ver el resultado final
     return campos_valores
 
-# Procesar el PDF
-lineas = extraer_bloques_pdfminer(pdf_path)
-campos_valores = estructurar_campos_mejorado(lineas)
+# Procesar el PDF página por página
+paginas_bloques = extraer_bloques_pdfminer_por_pagina(pdf_path)
 
-# Mostrar los resultados estructurados
-print("\nDatos estructurados finales:")
-for campo, valor in campos_valores.items():
-    print(f"{campo}: {valor}")
+# Analizar cada página por separado
+print("\nAnalizando cada página...")
+for numero_pagina, bloques in enumerate(paginas_bloques, start=1):
+    print(f"\nPágina {numero_pagina}:")
+    campos_valores = estructurar_campos_mejorado(bloques)
+    print(f"Datos estructurados para la página {numero_pagina}:")
+    for campo, valor in campos_valores.items():
+        print(f"{campo}: {valor}")

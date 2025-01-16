@@ -1,3 +1,13 @@
+"""
+Este código lee un archivo PDF, extrae el texto de todas sus páginas 
+y busca fechas con un formato específico en el texto extraído. 
+Las fechas encontradas se muestran al usuario.
+import re: Importa el módulo de expresiones regulares (regex), 
+que se utiliza para buscar patrones en cadenas de texto.
+from PyPDF2 import PdfReader: Importa la clase PdfReader del módulo PyPDF2, 
+que se utiliza para leer archivos PDF.
+
+"""
 import re
 from PyPDF2 import PdfReader
 
